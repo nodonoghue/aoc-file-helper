@@ -1,3 +1,3 @@
-module github.com/nodonoghue/aoc-file-helper
+module github.com/nodonoghue/filehelper
 
 go 1.23.4
