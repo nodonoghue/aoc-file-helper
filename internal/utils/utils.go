@@ -1,4 +1,4 @@
-package filehelper
+package utils
 
 import (
 	"bufio"
