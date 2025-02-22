@@ -1,4 +1,4 @@
-package cmd
+package aocfilehelper
 
 import "github.com/nodonoghue/aoc-file-helper/internal/filehelper"
 
