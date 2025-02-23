@@ -1,9 +1,22 @@
 package filehelper
 
-import "github.com/nodonoghue/filehelper/internal/utils"
+import (
+	"os"
 
-// Pass in a file path to get a slice of file lines to pass through the parsing func of your choice
-func ReadFileLines(filename string) []string {
-	file := utils.OpenFile(filename)
-	return utils.ReadFile(file)
+	"github.com/nodonoghue/filehelper/internal/readfile"
+	"github.com/nodonoghue/filehelper/internal/utils"
+)
+
+// Reads the given file and returns each line as []string
+func ReadFileLines(filename string) ([]string, error) {
+	file, err := utils.OpenFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	return readfile.ReadFileLines(file), nil
+}
+
+// Opens a file and returns as *os.File
+func OpenFile(filename string) (*os.File, error) {
+	return utils.OpenFile(filename)
 }
