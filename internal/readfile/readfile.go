@@ -5,7 +5,12 @@ import (
 	"os"
 )
 
-func ReadFileLines(file *os.File) []string {
+func ReadFileLines(filename string) ([]string, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+
 	rlines := make([]string, 0)
 
 	defer file.Close()
@@ -15,5 +20,5 @@ func ReadFileLines(file *os.File) []string {
 		rlines = append(rlines, scanner.Text())
 	}
 
-	return rlines
+	return rlines, nil
 }
